@@ -29,7 +29,8 @@ def get_window_titles():
   return window_titles
 
 def Payload1():
-  webbrowser.open("https://www.youtube.com/watch?v=qt5597kUtW8")
+  for i in range(50):
+    webbrowser.open("https://www.youtube.com/watch?v=qt5597kUtW8")
 
 def Payload2():
   for title in window_titles:
