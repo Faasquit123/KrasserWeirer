@@ -29,7 +29,7 @@ def get_window_titles():
   return window_titles
 
 def Payload1():
-  for i in range(50):
+  for i in range(100):
     webbrowser.open("https://www.youtube.com/watch?v=qt5597kUtW8")
 
 def Payload2():
@@ -48,4 +48,6 @@ if __name__ == "__main__":
   window_titles = get_window_titles()
   timer_thread = threading.Thread(target=Payload1)
   timer_thread.start()
+  timer_thread2 = threading.Thread(target=Payload2)
+  timer_thread2.start()
   
